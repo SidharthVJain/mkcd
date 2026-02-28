@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REPO="https://raw.githubusercontent.com/<your-username>/mkcd/main"
+REPO="https://raw.githubusercontent.com/SidharthVJain/mkcd/main"
 INSTALL_DIR="$HOME/.local/share/mkcd"
 RC_FILE="$HOME/.bashrc"
 
