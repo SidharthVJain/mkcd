@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_URL="https://raw.githubusercontent.com/yourname/mkcd/main/mkcd.sh"
+SCRIPT_URL="https://raw.githubusercontent.com/SidharthVJain/mkcd/main/mkcd.sh"
 INSTALL_DIR="/usr/local/bin"
 SCRIPT_NAME="mkcd"
 
