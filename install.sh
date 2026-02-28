@@ -1,18 +1,21 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
+set -e
 
-SCRIPT_URL="https://raw.githubusercontent.com/SidharthVJain/mkcd/main/mkcd.sh"
-INSTALL_DIR="/usr/local/bin"
-SCRIPT_NAME="mkcd"
+REPO="https://raw.githubusercontent.com/<your-username>/mkcd/main"
+INSTALL_DIR="$HOME/.local/share/mkcd"
+RC_FILE="$HOME/.bashrc"
 
-echo "Downloading $SCRIPT_NAME..."
+echo "Installing mkcd..."
 
-curl -fsSL "$SCRIPT_URL" -o "$SCRIPT_NAME"
+mkdir -p "$INSTALL_DIR"
 
-echo "Installing to $INSTALL_DIR..."
+# Download mkcd.sh
+curl -fsSL "$REPO/mkcd.sh" -o "$INSTALL_DIR/mkcd.sh"
 
-sudo install -m 755 "$SCRIPT_NAME" "$INSTALL_DIR/$SCRIPT_NAME"
+# Add source line if missing
+if ! grep -q 'mkcd.sh' "$RC_FILE"; then
+    echo "source $INSTALL_DIR/mkcd.sh" >> "$RC_FILE"
+fi
 
-rm "$SCRIPT_NAME"
-
-echo "Installed! You can now run: $SCRIPT_NAME"
+echo "Installation complete."
+echo "Run: source ~/.bashrc"
